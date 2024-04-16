@@ -9,85 +9,94 @@
   color: var(--very-dark-blue);
   background-color: var(--light-grey);
 }
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-size: 62.5%;
+  font-family: "Overpass", sans-serif;
+}
 body {
-  height: 90dvh;
-  color: white;
   display: flex;
+  height: 100dvh;
+  color: white;
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  font-family: "Overpass", sans-serif;
   background:var(--very-dark-blue); 
 }
 main {
-  max-width: 320px;
+  max-width: 32rem;
   border-radius: 1rem;
   background-color: var(--dark-blue);
 }
 .star-div {
-  background-color: hsla(213, 6%, 35%, 0.185);
+  border-radius: 50%;
   padding: 0.8rem 1rem;
-  border-radius: 6rem;
+  background-color: hsla(213, 6%, 35%, 0.185);
 }
 .container {
   display: flex;
+  align-items: start;
   flex-direction: column;
   justify-content: space-between;
-  align-items: start;
+  padding: 2rem;
   gap: 1rem;
-  padding: 1.5rem;
 }
-#ratings div h1 {
-  font-size: 1.5rem;
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2rem;
+  margin: 1rem auto;
+}
+.hero > h1 {
   font-weight: 900;
+  font-size: 2.5rem;
 }
-#ratings div p {
-  font-size: 0.85rem;
+.hero > p {
+  font-size: 1.4rem;
   color: var(--light-grey);
 }
-.buttons-div {
+.rating-buttons {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  gap: 0.5rem;
+  gap: 1rem;
+  width: 100%;
+  margin-bottom: 1rem;
 }
-.ratings-num {
-  width: 44px;
-  aspect-ratio: 1 / 1;
+.rate {
+  width: 100%;
+  cursor: pointer;
+  font-size: 1.8rem;
   border-radius: 50%;
+  aspect-ratio: 1 / 1;
   color: var(--light-grey);
   border: 1px solid var(--dark-blue);
   background-color: hsla(213, 25%, 34%, 0.301);
 }
-.ratings-num:focus,
-.ratings-num:focus-visible {
+.rate:focus,
+.rate:focus-visible {
   color: white;
   background-color: var(--medium-grey);
 }
-.ratings-num:hover {
+.rate:hover {
   color: white;
-  cursor: pointer;
   background-color: var(--orange);
 }
-#message {
-  align-items: center;
-  text-align: center;
-}
-#message h1 {
-  color: var(--orange);
-  font-size: 1.2rem;
-  padding: 0.4rem 1rem;
-  border-radius: 2rem;
-  background-color: hsl(213, 19%, 28%);
-}
-#message div p {
-  font-size: 0.8rem;
-  color: var(--light-grey);
-}
 .submit-btn {
-  cursor: pointer;
+  border: 0;
+  width: 100%;
   color: white;
+  cursor: pointer;
   font-weight: 700;
+  padding: 1.5rem 0;
+  font-size: 1.5rem;
   border-radius: 4rem;
   text-transform: uppercase;
   background-color: var(--orange);
@@ -96,16 +105,51 @@ main {
   color: var(--orange);
   background-color: white;
 }
-
-@media (min-width: 768px) {
-  main {
-    max-width: 360px;
-  }
-  .buttons-div {
-    justify-content: space-between;
-    gap: 1.2rem;
-  }
-  #message div p {
-    font-size: .86rem;
-  }
+#message {
+  gap: 2rem;
+  text-align: center;
+  align-items: center;
 }
+#message > img {
+  width: 60%;
+}
+#message > h1 {
+  font-size: 2rem;
+  font-weight: 500;
+  border-radius: 2rem;
+  padding: 1rem 2rem;
+  color: var(--orange);
+  text-transform: capitalize;
+  background-color: hsl(213, 19%, 28%);
+  background-color: var(--very-dark-blue);
+}
+.lightBlue-text { color: lightblue; }
+#message > div >  h2 {
+  font-size: 2.5rem;
+}
+#message > div >  p {
+  font-size: 1.4rem;
+  color: var(--light-grey);
+  margin: 2rem 0;
+}
+@media (min-width: 35rem) {
+  main { max-width: 35rem; }
+  .hero > h1 { font-size: 3rem; }
+  .hero > p { font-size: 1.5rem; }
+  .rate { font-size: 1.5rem; }
+  .submit-btn { font-size: 1.5rem; margin: 1rem 0;}
+  #message > h1 { font-size: 2rem; }
+  #message > div > h2 { font-size: 2.5rem; }
+  #message > div > p { font-size: 1.6rem; }
+}
+@media (min-width: 45rem) {
+  main { max-width: 40rem; }
+  .hero > h1 { font-size: 3.5rem; }
+  .hero > p { font-size: 1.82rem; }
+  .rate { font-size: 2rem; }
+  .submit-btn { font-size: 2rem; margin: 1rem 0;}
+  #message > h1 { font-size: 2.5rem; }
+  #message > div > h2 { font-size: 3.5rem; }
+  #message > div > p { font-size: 1.8rem; }
+}
+.d-none { display: none; }
